@@ -7,8 +7,8 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
 // Pages
-
 import Home from "./pages/Home";
+import Restaurant from "./pages/Restaurant";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/restaurants" element={<Restaurant />} />
           </Routes>
         </main>
         <Footer />

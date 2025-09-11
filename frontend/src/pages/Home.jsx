@@ -1,11 +1,12 @@
 // pages/Home.js
 import Contact from "./Contact";
+import "./Home.scss";
 const Home = () => {
   return (
     <div className="home-page">
       <section className="hero">
         <div className="hero-content">
-          <h1>Welcome to TravelEase</h1>
+          <h1>Welcome to BenYadjis</h1>
           <p>
             Discover amazing places and culinary experiences around the world
           </p>
