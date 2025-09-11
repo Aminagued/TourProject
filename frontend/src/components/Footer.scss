@@ -1,0 +1,131 @@
+// Footer.scss
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 3rem 0 1rem;
+  margin-top: 3rem;
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    .footer-section {
+      h3 {
+        color: #ff7f00;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      h4 {
+        color: #ff7f00;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      p {
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        color: #ccc;
+      }
+
+      ul {
+        list-style: none;
+
+        li {
+          margin-bottom: 0.7rem;
+
+          a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+              color: #ff7f00;
+            }
+          }
+        }
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background-color: #444;
+          border-radius: 50%;
+          color: #fff;
+          transition: all 0.3s;
+
+          &:hover {
+            background-color: #ff7f00;
+            transform: translateY(-3px);
+          }
+        }
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        input {
+          padding: 0.8rem;
+          border: none;
+          border-radius: 4px;
+          background-color: #444;
+          color: #fff;
+
+          &::placeholder {
+            color: #999;
+          }
+        }
+
+        button {
+          padding: 0.8rem;
+          background-color: #ff7f00;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: darken(#ff7f00, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #444;
+    color: #999;
+    font-size: 0.9rem;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .footer {
+    .footer-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  }
+}
