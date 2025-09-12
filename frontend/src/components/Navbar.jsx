@@ -40,7 +40,7 @@ const Navbar = () => {
             Restaurants
           </Link>
           <Link
-            to="/posts"
+            to="/community"
             className="nav-link"
             onClick={() => setIsMenuOpen(false)}
           >
