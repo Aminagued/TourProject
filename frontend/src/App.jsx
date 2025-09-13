@@ -11,6 +11,7 @@ import Community from "./pages/Community";
 import Destinations from "./pages/Destinations";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Restaurant from "./pages/Restaurant";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/restaurants" element={<Restaurant />} />
             <Route path="/destinations" element={<Destinations />} />
             <Route path="/community" element={<Community />} />

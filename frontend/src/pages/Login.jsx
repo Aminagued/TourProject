@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.scss";
 
 const Login = () => {
@@ -100,7 +100,7 @@ const Login = () => {
 
         <div className="login-footer">
           <p>
-            Don't have an account? <a href="#register">Sign up</a>
+            Don't have an account? <Link to="/register">Sign up</Link>
           </p>
         </div>
 

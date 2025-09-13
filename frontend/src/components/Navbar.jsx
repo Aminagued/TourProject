@@ -40,7 +40,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          TravelEase
+          BenYadjisNow
           <i className="fas fa-globe-americas"></i>
         </Link>
 
