@@ -101,7 +101,61 @@
       }
     }
   }
+  // Add to existing Navbar.scss
+  .user-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 
+    .user-profile-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+
+      .user-avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      &:hover {
+        color: #ff7f00;
+      }
+    }
+
+    .btn-logout {
+      background-color: transparent;
+      color: #ff7f00;
+      border: 1px solid #ff7f00;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #ff7f00;
+        color: white;
+      }
+    }
+  }
+
+  // Responsive styles for mobile
+  @media (max-width: 968px) {
+    .user-menu {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem;
+
+      .user-profile-link {
+        justify-content: center;
+      }
+    }
+  }
   .nav-toggle {
     display: none;
     flex-direction: column;

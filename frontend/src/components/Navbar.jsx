@@ -1,19 +1,46 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.scss";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+  const history = useNavigate();
+
+  useEffect(() => {
+    // Check if user is logged in
+    const authenticated = localStorage.getItem("isAuthenticated");
+    const userData = localStorage.getItem("user");
+
+    if (authenticated && userData) {
+      setIsLoggedIn(true);
+      setUser(JSON.parse(userData));
+    }
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogout = () => {
+    // Clear user data from localStorage
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("user");
+
+    // Update state
+    setIsLoggedIn(false);
+    setUser(null);
+
+    // Redirect to home page
+    history.push("/");
   };
 
   return (
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          BenYadjisNow
+          TravelEase
           <i className="fas fa-globe-americas"></i>
         </Link>
 
@@ -56,14 +83,36 @@ const Navbar = () => {
         </div>
 
         <div className="nav-auth">
-          <div className="auth-buttons">
-            <Link to="/login" className="btn-login">
-              Login
-            </Link>
-            <Link to="/register" className="btn-register">
-              Sign Up
-            </Link>
-          </div>
+          {isLoggedIn ? (
+            <div className="user-menu">
+              <Link to="/profile" className="nav-link user-profile-link">
+                {user?.avatar && (
+                  <img
+                    src={user.avatar}
+                    alt={user.name}
+                    className="user-avatar"
+                  />
+                )}
+                <span>{user?.name || "Profile"}</span>
+              </Link>
+              <button onClick={handleLogout} className="btn-logout">
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className="auth-buttons">
+              <Link
+                to="/login"
+                className="btn-login"
+                onClick={() => console.log("Login button clicked")}
+              >
+                Login
+              </Link>
+              <Link to="/register" className="btn-register">
+                Sign Up
+              </Link>
+            </div>
+          )}
         </div>
 
         <div className="nav-toggle" onClick={toggleMenu}>
